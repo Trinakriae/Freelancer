@@ -1,2 +1,2 @@
 # Freelancer
-Freelancer accounting application fro TeamSystem
+Freelancer accounting application for TeamSystem
