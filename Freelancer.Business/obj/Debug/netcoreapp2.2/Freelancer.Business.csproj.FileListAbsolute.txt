@@ -1,0 +1,11 @@
+C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.deps.json
+C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.runtimeconfig.json
+C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.runtimeconfig.dev.json
+C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.dll
+C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.csprojAssemblyReference.cache
+C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.csproj.CoreCompileInputs.cache
+C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.RazorAssemblyInfo.cache
+C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.RazorAssemblyInfo.cs
+C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.AssemblyInfoInputs.cache
+C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.AssemblyInfo.cs
+C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.RazorTargetAssemblyInfo.cache
