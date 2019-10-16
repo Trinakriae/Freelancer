@@ -17,12 +17,16 @@ namespace Freelancer.Business.Models
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<InvoiceLine> InvoiceLines { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["FreelancerDB"];
-            optionsBuilder.UseSqlServer(settings.ConnectionString);
-        }
+        public EFContext(DbContextOptions<EFContext> options)
+            : base(options)
+        { }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    base.OnConfiguring(optionsBuilder);
+        //    ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["FreelancerDB"];
+        //    optionsBuilder.UseSqlServer(settings.ConnectionString);
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

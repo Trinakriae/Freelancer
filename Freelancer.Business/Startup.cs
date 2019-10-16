@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Freelancer.Business.Interfaces;
+using Freelancer.Business.Models;
 using Freelancer.Business.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -46,7 +48,12 @@ namespace Freelancer.Business
 
 
             //Dependency Injection
-            services.AddScoped<ITimeRegistrationService, TimeRegistrationService>();
+            services.AddScoped<IAllocatedTimeService, AllocatedTimeService>();
+            services.AddScoped<IProjectService, ProjectService>();
+
+            //Database Context Injection
+            services.AddDbContext<EFContext>(options => options.UseSqlite("Data Source=blog.db"));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

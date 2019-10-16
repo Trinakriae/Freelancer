@@ -9,7 +9,7 @@ namespace Freelancer.Business.Models.Entities
     {
         public int Id { get; set; }
         public string Description { get; set; }
-        public virtual Project ProjectId { get; set; }
-        public virtual Invoice InvoiceId { get; set; }
+        public int ProjectId { get; set; }
+        public int InvoiceId { get; set; }
     }
 }

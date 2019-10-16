@@ -10,7 +10,8 @@ namespace Freelancer.Business.Models.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public virtual User UserId { get; set; }
+        public int UserId { get; set; }
+
         public virtual Customer CustomerId { get; set; }
         public virtual ICollection<AllocatedTime> AllocatedTimes { get; set; }
     }
