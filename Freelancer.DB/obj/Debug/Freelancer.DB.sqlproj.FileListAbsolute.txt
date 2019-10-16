@@ -1,0 +1,9 @@
+C:\CICCIO\Workspace\Freelancer\Freelancer.DB\bin\Debug\Freelancer.DB.dacpac
+C:\CICCIO\Workspace\Freelancer\Freelancer.DB\bin\Debug\Freelancer.DB.dll
+C:\CICCIO\Workspace\Freelancer\Freelancer.DB\bin\Debug\Freelancer.DB.pdb
+C:\CICCIO\Workspace\Freelancer\Freelancer.DB\obj\Debug\Model.xml
+C:\CICCIO\Workspace\Freelancer\Freelancer.DB\obj\Debug\refactor.xml
+C:\CICCIO\Workspace\Freelancer\Freelancer.DB\obj\Debug\postdeploy.sql
+C:\CICCIO\Workspace\Freelancer\Freelancer.DB\obj\Debug\predeploy.sql
+C:\CICCIO\Workspace\Freelancer\Freelancer.DB\obj\Debug\Freelancer.DB.dll
+C:\CICCIO\Workspace\Freelancer\Freelancer.DB\obj\Debug\Freelancer.DB.pdb

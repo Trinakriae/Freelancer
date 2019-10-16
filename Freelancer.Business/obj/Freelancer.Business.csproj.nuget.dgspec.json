@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Francesco.Sciuto\\Workspace\\Freelancer\\Freelancer.Business\\Freelancer.Business.csproj": {}
+    "C:\\CICCIO\\Workspace\\Freelancer\\Freelancer.Business\\Freelancer.Business.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Francesco.Sciuto\\Workspace\\Freelancer\\Freelancer.Business\\Freelancer.Business.csproj": {
+    "C:\\CICCIO\\Workspace\\Freelancer\\Freelancer.Business\\Freelancer.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Francesco.Sciuto\\Workspace\\Freelancer\\Freelancer.Business\\Freelancer.Business.csproj",
+        "projectUniqueName": "C:\\CICCIO\\Workspace\\Freelancer\\Freelancer.Business\\Freelancer.Business.csproj",
         "projectName": "Freelancer.Business",
-        "projectPath": "C:\\Users\\Francesco.Sciuto\\Workspace\\Freelancer\\Freelancer.Business\\Freelancer.Business.csproj",
-        "packagesPath": "C:\\Users\\Francesco.Sciuto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Francesco.Sciuto\\Workspace\\Freelancer\\Freelancer.Business\\obj\\",
+        "projectPath": "C:\\CICCIO\\Workspace\\Freelancer\\Freelancer.Business\\Freelancer.Business.csproj",
+        "packagesPath": "C:\\Users\\Agenzia Sciuto\\.nuget\\packages\\",
+        "outputPath": "C:\\CICCIO\\Workspace\\Freelancer\\Freelancer.Business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Francesco.Sciuto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Agenzia Sciuto\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,6 +57,18 @@
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[3.141.0, )"
+            },
+            "Serilog.Extensions.Logging.File": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[4.0.1, )"
             },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",

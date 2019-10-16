@@ -9,3 +9,17 @@ C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\obj\Debu
 C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.AssemblyInfoInputs.cache
 C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.AssemblyInfo.cs
 C:\Users\francesco\source\repos\Freelancer.Business\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.RazorTargetAssemblyInfo.cache
+C:\CICCIO\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.csprojAssemblyReference.cache
+C:\CICCIO\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.csproj.CoreCompileInputs.cache
+C:\CICCIO\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.RazorAssemblyInfo.cache
+C:\CICCIO\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.RazorAssemblyInfo.cs
+C:\CICCIO\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.AssemblyInfoInputs.cache
+C:\CICCIO\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.AssemblyInfo.cs
+C:\CICCIO\Workspace\Freelancer\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.deps.json
+C:\CICCIO\Workspace\Freelancer\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.runtimeconfig.json
+C:\CICCIO\Workspace\Freelancer\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.runtimeconfig.dev.json
+C:\CICCIO\Workspace\Freelancer\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.dll
+C:\CICCIO\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.RazorTargetAssemblyInfo.cache
+C:\CICCIO\Workspace\Freelancer\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.pdb
+C:\CICCIO\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.dll
+C:\CICCIO\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.pdb

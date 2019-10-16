@@ -1,0 +1,9 @@
+C:\CICCIO\Workspace\Freelancer\Freelancer.Shared\bin\Debug\netcoreapp2.2\Freelancer.Shared.deps.json
+C:\CICCIO\Workspace\Freelancer\Freelancer.Shared\bin\Debug\netcoreapp2.2\Freelancer.Shared.dll
+C:\CICCIO\Workspace\Freelancer\Freelancer.Shared\bin\Debug\netcoreapp2.2\Freelancer.Shared.pdb
+C:\CICCIO\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelancer.Shared.csprojAssemblyReference.cache
+C:\CICCIO\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelancer.Shared.csproj.CoreCompileInputs.cache
+C:\CICCIO\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelancer.Shared.AssemblyInfoInputs.cache
+C:\CICCIO\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelancer.Shared.AssemblyInfo.cs
+C:\CICCIO\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelancer.Shared.dll
+C:\CICCIO\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelancer.Shared.pdb

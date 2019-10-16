@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Freelancer.Business.Interfaces;
 using Freelancer.Business.Models.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using OpenQA.Selenium;
 
 namespace Freelancer.Business.Controllers
 {
@@ -14,48 +16,133 @@ namespace Freelancer.Business.Controllers
     public class ProjectController : ControllerBase
     {
         private readonly ILogger<ProjectController> _logger;
-        private readonly IAllocatedTimeService _timeRegistrationService;
+        private readonly IProjectService _projectService;
 
-        public ProjectController(ILogger<ProjectController> logger, IAllocatedTimeService timeRegistrationService)
+        public ProjectController(ILogger<ProjectController> logger, IProjectService projectService)
         {
             _logger = logger;
-            _timeRegistrationService = timeRegistrationService;
+            _projectService = projectService;
         }
 
         // GET api/project
         [HttpGet]
         public ActionResult<IEnumerable<Project>> GetProjects()
         {
-            //return new string[] { "value1", "value2" };
+            try
+            {
+                IEnumerable<Project> projects = _projectService.GetProjects();
+                return Ok(projects);
+            }
+            catch (NotFoundException nfex)
+            {
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An Error Occurred");
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
 
-        // GET api/project/{projectId}/allocatedTimes/
-        [HttpGet("{userId}/allocatedTimes")]
-        public ActionResult<IEnumerable<AllocatedTime>> GetAllocatedTimes(int userId)
+        // GET api/project/{projectId}
+        [HttpGet("{projectId}")]
+        public ActionResult<IEnumerable<Project>> GetProjectById([FromRoute] int projectId)
         {
             try
             {
-                IEnumerable<AllocatedTime> allocatedTimes = _timeRegistrationService.GetAllocatedTimes(userId);
+                Project project = _projectService.GetProjectById(projectId);
+                return Ok(project);
             }
-            catch(Exception ex)
+            catch (NotFoundException nfex)
             {
-                //log and throw
+                return NotFound();
             }
-           
-            
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An Error Occurred");
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
 
-        // GET api/project/{userId}/allocatedTimes/{allocatedTimeId}
-        [HttpGet("{userId}/allocatedTimes/{allocatedTimeId}")]
-        public ActionResult<AllocatedTime> Get(int id)
+        // GET api/project/user/{userId}
+        [HttpGet("user/{userId}")]
+        public ActionResult<IEnumerable<Project>> GetProjectByUserId([FromRoute] int userId)
         {
+            try
+            {
+                IEnumerable<Project> userProjects = _projectService.GetProjects().Where(p => p.UserId == userId);
+                return Ok(userProjects);
+            }
+            catch (NotFoundException nfex)
+            {
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An Error Occurred");
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
 
-        // GET api/project/project
-        [HttpGet("timeregistrations")]
-        public ActionResult<IEnumerable<string>> GetTimeRegistrations()
+        // GET api/project/allocatedTimes/
+        [HttpGet("allocatedTimes")]
+        public ActionResult<IEnumerable<AllocatedTime>> GetAllocatedTimes()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                IEnumerable<AllocatedTime> allocatedTimes = _projectService.GetAllocatedTimes();
+                return Ok(allocatedTimes);
+            }
+            catch (NotFoundException nfex)
+            {
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An Error Occurred");
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        // GET api/project/user/{userId}/allocatedTimes/
+        [HttpGet("user/{userId}/allocatedTimes")]
+        public ActionResult<IEnumerable<AllocatedTime>> GetAllocatedTimesByProjectId([FromRoute] int userId)
+        {
+            try
+            {
+                IEnumerable<AllocatedTime> allocatedTimes = _projectService.GetAllocatedTimesByUserId(userId);
+                return Ok(allocatedTimes);
+            }
+            catch (NotFoundException nfex)
+            {
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An Error Occurred");
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        // GET api/project/user/{userId}/allocatedTimes/search
+        [HttpGet("user/{userId}/allocatedTimes/search")]
+        public ActionResult SearchAllocatedTimes([FromRoute] int userId, DateTime? startDate, DateTime? endDate, int? customerId, bool? invoiced)
+        {
+            try
+            {
+               
+
+                return Ok(allocatedTimes);
+            }
+            catch (NotFoundException nfex)
+            {
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An Error Occurred");
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
     }
 }
