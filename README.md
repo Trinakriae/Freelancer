@@ -1,7 +1,7 @@
 # Freelancer
 Freelancer accounting application for TeamSystem
 
-Here are summarized the most relevant design decision taken for the development phase:
+Here are summarized the most relevant design decisions taken for the development phase:
 
 1) Placed Project and AllocationTime under the same Service class since within the scope of the assignment they are strictly related.
 2) Used dependency injection for the database context as suggested by Marcello in order to better conform with SOLID principles.
