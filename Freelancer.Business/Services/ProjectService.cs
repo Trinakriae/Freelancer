@@ -14,9 +14,11 @@ namespace Freelancer.Business.Services
     public class ProjectService : IProjectService
     {
         EFContext _context;
-        public ProjectService(EFContext context)
+        ICustomerService _customerService;
+        public ProjectService(EFContext context, ICustomerService customerService)
         {
             _context = context;
+            _customerService = customerService;
         }
 
         /// <summary>
@@ -27,8 +29,9 @@ namespace Freelancer.Business.Services
         {
             IQueryable<Project> projects = _context.Projects.Include(p => p.User)
                                                             .Include(p => p.Customer)
-                                                            .Include(p => p.User);
+                                                            .Include(p => p.AllocatedTimes);
 
+                                                         
             if (projects == null || projects.Count() == 0)
             {
                 throw new NotFoundException();
@@ -61,7 +64,7 @@ namespace Freelancer.Business.Services
         /// <returns></returns>
         public IEnumerable<AllocatedTime> GetAllocatedTimes()
         {
-            IQueryable<AllocatedTime> allocatedTimes = _context.AllocatedTimes.Include(at => at.Project)
+            IQueryable<AllocatedTime> allocatedTimes = _context.AllocatedTimes.Include(at => at.Project.User);
                                                                               .Include(at => at.Invoice);
             if (allocatedTimes == null || allocatedTimes.Count() == 0)
             {
@@ -89,8 +92,8 @@ namespace Freelancer.Business.Services
 
         public IEnumerable<AllocatedTime> SearchAllocatedTimes(SearchAllocatedTimesRequest request)
         {
-            IQueryable<AllocatedTime> userAllocatedTimes = _context.AllocatedTimes.Include(at => at.Project.Customer)
-                                                                                  .Include(at => at.Project.User)
+            IQueryable<AllocatedTime> userAllocatedTimes = _context.AllocatedTimes.Include(at => at.Project.User)
+                                                                                  .Include(at => at.Project.Customer)
                                                                                   .Include(at => at.Invoice)
                                                                                   .Where(at => at.Project.User.Id == request.UserId);
 
@@ -98,16 +101,15 @@ namespace Freelancer.Business.Services
             {
                 userAllocatedTimes = userAllocatedTimes.Where(at => at.StartDate > request.StartDate);
             }
-            if (request.EndDate == null)
+            if (request.EndDate != null)
             {
                 userAllocatedTimes = userAllocatedTimes.Where(at => at.EndDate < request.EndDate);
             }
-            if (request.CustomerId == null)
+            if (request.CustomerId != null)
             {
-                
-                userAllocatedTimes = userAllocatedTimes.Where(at => at.Project.Customer.Id == request.CustomerId);
+                userAllocatedTimes = userAllocatedTimes.Where(at => at.Project.Customer.Id == request.UserId);
             }
-            if (request.Invoiced == null)
+            if (request.Invoiced != null)
             {
                 userAllocatedTimes = userAllocatedTimes.Where(at => (request.Invoiced.Value && at.Invoice != null) || (!request.Invoiced.Value && at.Invoice == null));
             }

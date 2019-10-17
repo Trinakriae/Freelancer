@@ -8,6 +8,7 @@ using Freelancer.Business.Models.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using OpenQA.Selenium;
 
 namespace Freelancer.Business.Controllers
@@ -32,7 +33,15 @@ namespace Freelancer.Business.Controllers
             try
             {
                 IEnumerable<Project> projects = _projectService.GetProjects();
-                return Ok(projects);
+
+                return Ok(projects.Select(p => new
+                {
+                    p.Id,
+                    p.Name,
+                    p.Description,
+                    user = new { p.User.Id, p.User.Name, p.User.Surname},
+                    customer = new { p.Customer.Id, p.Customer.Name }
+                })); ;
             }
             catch (NotFoundException nfex)
             {
@@ -71,6 +80,7 @@ namespace Freelancer.Business.Controllers
         {
             try
             {
+                
                 IEnumerable<Project> userProjects = _projectService.GetProjects().Where(p => p.User.Id == userId);
                 return Ok(userProjects);
             }
@@ -157,6 +167,12 @@ namespace Freelancer.Business.Controllers
                         {
                             at.Project.Customer.Id,
                             at.Project.Customer.Name
+                        },
+                        user = new
+                        {
+                            at.Project.User.Id,
+                            at.Project.User.Name,
+                            at.Project.User.Surname,
                         }
                     }
                 }));

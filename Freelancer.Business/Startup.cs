@@ -52,6 +52,9 @@ namespace Freelancer.Business
 
             //Dependency Injection
             services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IInvoiceService, InvoiceService>();
 
             //Database Context Injection
             services.AddDbContext<EFContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FreelancerDB")));

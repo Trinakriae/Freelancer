@@ -10,6 +10,7 @@ namespace Freelancer.Business.Models.Entities
         public int Id { get; set; }
         public string Name { get; set; }
 
+        public int UserId { get; set; }
         public User User { get; set; }
         public virtual ICollection<Invoice> Invoices { get; set; }
         public virtual ICollection<Project> Projects { get; set; }

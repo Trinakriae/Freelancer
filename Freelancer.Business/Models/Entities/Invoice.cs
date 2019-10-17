@@ -12,6 +12,7 @@ namespace Freelancer.Business.Models.Entities
         public INVOICESTATUS Status { get; set; }
         public string Description { get; set; }
 
+        public int CustomerId { get; set; }
         public Customer Customer { get; set; }
         public virtual ICollection<AllocatedTime> AllocatedTimes { get; set; }
         public virtual ICollection<InvoiceLine> InvoiceLines { get; set; }
