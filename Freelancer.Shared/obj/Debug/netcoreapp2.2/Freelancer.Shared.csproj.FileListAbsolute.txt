@@ -7,3 +7,11 @@ C:\CICCIO\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelan
 C:\CICCIO\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelancer.Shared.AssemblyInfo.cs
 C:\CICCIO\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelancer.Shared.dll
 C:\CICCIO\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelancer.Shared.pdb
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Shared\bin\Debug\netcoreapp2.2\Freelancer.Shared.deps.json
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Shared\bin\Debug\netcoreapp2.2\Freelancer.Shared.dll
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Shared\bin\Debug\netcoreapp2.2\Freelancer.Shared.pdb
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelancer.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelancer.Shared.AssemblyInfoInputs.cache
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelancer.Shared.AssemblyInfo.cs
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelancer.Shared.dll
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Shared\obj\Debug\netcoreapp2.2\Freelancer.Shared.pdb

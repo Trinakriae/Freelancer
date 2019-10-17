@@ -11,5 +11,6 @@ namespace Freelancer.Business.Models.Entities
         public decimal Amount { get; set; }
         public string Description { get; set; }
         public int InvoiceId { get; set; }
+        public Invoice Invoice { get; set; }
     }
 }

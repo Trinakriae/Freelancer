@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freelancer.Business", "Freelancer.Business\Freelancer.Business.csproj", "{FB95DB84-0C55-4460-851F-6F19599B9541}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Freelancer.Business", "Freelancer.Business\Freelancer.Business.csproj", "{FB95DB84-0C55-4460-851F-6F19599B9541}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freelancer.Shared", "Freelancer.Shared\Freelancer.Shared.csproj", "{17997483-C53C-4D35-B9B5-357E2C93C5A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Freelancer.Shared", "Freelancer.Shared\Freelancer.Shared.csproj", "{17997483-C53C-4D35-B9B5-357E2C93C5A6}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Freelancer.DB", "Freelancer.DB\Freelancer.DB.sqlproj", "{E7C5B820-AB68-400E-8836-406C90471481}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freelancer.WebApp", "Freelancer.WebApp\Freelancer.WebApp.csproj", "{838F6238-9221-4CA8-88CE-A06E57766D9B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freelancer.WebApp", "Freelancer.WebApp\Freelancer.WebApp.csproj", "{7FFAF935-3D74-4542-82B2-C66D3F5A3A22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +31,10 @@ Global
 		{E7C5B820-AB68-400E-8836-406C90471481}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7C5B820-AB68-400E-8836-406C90471481}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E7C5B820-AB68-400E-8836-406C90471481}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{838F6238-9221-4CA8-88CE-A06E57766D9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{838F6238-9221-4CA8-88CE-A06E57766D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{838F6238-9221-4CA8-88CE-A06E57766D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{838F6238-9221-4CA8-88CE-A06E57766D9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FFAF935-3D74-4542-82B2-C66D3F5A3A22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FFAF935-3D74-4542-82B2-C66D3F5A3A22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FFAF935-3D74-4542-82B2-C66D3F5A3A22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FFAF935-3D74-4542-82B2-C66D3F5A3A22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

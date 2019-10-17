@@ -23,3 +23,17 @@ C:\CICCIO\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freel
 C:\CICCIO\Workspace\Freelancer\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.pdb
 C:\CICCIO\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.dll
 C:\CICCIO\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.pdb
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.deps.json
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.runtimeconfig.json
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.runtimeconfig.dev.json
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.dll
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Business\bin\Debug\netcoreapp2.2\Freelancer.Business.pdb
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.csprojAssemblyReference.cache
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.csproj.CoreCompileInputs.cache
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.RazorAssemblyInfo.cache
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.RazorAssemblyInfo.cs
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.AssemblyInfoInputs.cache
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.AssemblyInfo.cs
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.RazorTargetAssemblyInfo.cache
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.dll
+C:\Users\Francesco.Sciuto\Workspace\Freelancer\Freelancer.Business\obj\Debug\netcoreapp2.2\Freelancer.Business.pdb

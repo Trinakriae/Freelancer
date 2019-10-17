@@ -37,8 +37,8 @@ namespace Freelancer.Business.Models
                 entity.Property(e => e.Name).HasMaxLength(50);
                 entity.Property(e => e.Surname).HasMaxLength(50);
             });
-            modelBuilder.Entity<User>().HasMany(x => x.Customers).WithOne();
-            modelBuilder.Entity<User>().HasMany(x => x.Projects).WithOne();
+            modelBuilder.Entity<User>().HasMany(u => u.Customers).WithOne(c => c.User);
+            modelBuilder.Entity<User>().HasMany(u => u.Projects).WithOne(p => p.User);
 
             modelBuilder.Entity<Project>(entity =>
             {
@@ -46,28 +46,29 @@ namespace Freelancer.Business.Models
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).HasMaxLength(50);
                 entity.Property(e => e.Description);
-                entity.Property(e => e.CustomerId).HasColumnName("IdCustomer");
-                entity.Property(e => e.UserId).HasColumnName("IdUser");
+                //entity.Property(e => e.CustomerId).HasColumnName("IdCustomer");
+                //entity.Property(e => e.UserId).HasColumnName("IdUser");
             });
-            modelBuilder.Entity<Project>().HasMany(x => x.AllocatedTimes).WithOne();
+            modelBuilder.Entity<Project>().HasMany(p => p.AllocatedTimes).WithOne(at => at.Project);
 
             modelBuilder.Entity<AllocatedTime>(entity =>
             {
                 entity.ToTable("AllocatedTime");
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Description);
-                entity.Property(e => e.ProjectId).HasColumnName("IdProject");
-                entity.Property(e => e.InvoiceId).HasColumnName("IdInvoice");
+                //entity.Property(e => e.ProjectId).HasColumnName("IdProject");
+                //entity.Property(e => e.InvoiceId).HasColumnName("IdInvoice");
             });
-           
+
             modelBuilder.Entity<Invoice>(entity =>
             {
                 entity.ToTable("Invoice");
                 entity.HasKey(e => e.Id);
-                entity.Property(e => e.CustomerId).HasColumnName("IdCustomer");
+                //entity.Property(e => e.CustomerId).HasColumnName("IdCustomer");
             });
-            modelBuilder.Entity<Invoice>().HasMany(x => x.InvoiceLines).WithOne();
-            modelBuilder.Entity<Invoice>().HasMany(x => x.AllocatedTimes).WithOne();
+            //Aggregation relationship
+            modelBuilder.Entity<Invoice>().HasMany(i => i.InvoiceLines).WithOne(il => il.Invoice).IsRequired();
+            modelBuilder.Entity<Invoice>().HasMany(i => i.AllocatedTimes).WithOne(at => at.Invoice);
 
             modelBuilder.Entity<InvoiceLine>(entity =>
             {
@@ -81,8 +82,8 @@ namespace Freelancer.Business.Models
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).HasMaxLength(50);
             });
-
-            modelBuilder.Entity<Customer>().HasMany(x => x.Projects).WithOne();
+            modelBuilder.Entity<Customer>().HasMany(c => c.Projects).WithOne(p => p.Customer);
+            modelBuilder.Entity<Customer>().HasMany(c => c.Invoices).WithOne(p => p.Customer);
         }
     }
 }

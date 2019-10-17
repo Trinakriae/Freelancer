@@ -1,4 +1,5 @@
-﻿using Freelancer.Business.Models.Entities;
+﻿using Freelancer.Business.Contracts;
+using Freelancer.Business.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,7 @@ namespace Freelancer.Business.Interfaces
         IEnumerable<Project> GetProjects();
         Project GetProjectById(int projectId);
         IEnumerable<AllocatedTime> GetAllocatedTimes();
-        IEnumerable<AllocatedTime> GetAllocatedTimesByUserId(int userId);
         AllocatedTime GetAllocatedTimeById(int allocatedTimeId);
-        dynamic SearchAllocatedTimes(int userId, DateTime? startDate, DateTime? endDate, int? customerId, bool? invoiced);
+        IEnumerable<AllocatedTime> SearchAllocatedTimes(SearchAllocatedTimesRequest request);
     }
 }

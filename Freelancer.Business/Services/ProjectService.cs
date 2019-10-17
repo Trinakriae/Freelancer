@@ -1,4 +1,5 @@
-﻿using Freelancer.Business.Interfaces;
+﻿using Freelancer.Business.Contracts;
+using Freelancer.Business.Interfaces;
 using Freelancer.Business.Models;
 using Freelancer.Business.Models.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +25,10 @@ namespace Freelancer.Business.Services
         /// <returns></returns>
         public IEnumerable<Project> GetProjects()
         {
-            IQueryable<Project> projects = _context.Projects;
+            IQueryable<Project> projects = _context.Projects.Include(p => p.User)
+                                                            .Include(p => p.Customer)
+                                                            .Include(p => p.User);
+
             if (projects == null || projects.Count() == 0)
             {
                 throw new NotFoundException();
@@ -39,7 +43,11 @@ namespace Freelancer.Business.Services
         /// <returns></returns>
         public Project GetProjectById(int projectId)
         {
-            Project project = _context.Projects.Where(p => p.Id == projectId).FirstOrDefault();
+            Project project = _context.Projects.Include(p => p.User)
+                                               .Include(p=> p.Customer)
+                                               .Include(p => p.User)
+                                               .Include(p => p.AllocatedTimes)
+                                               .Where(p => p.Id == projectId).FirstOrDefault();
             if (project == null)
             {
                 throw new NotFoundException();
@@ -53,27 +61,8 @@ namespace Freelancer.Business.Services
         /// <returns></returns>
         public IEnumerable<AllocatedTime> GetAllocatedTimes()
         {
-            IQueryable<AllocatedTime> allocatedTimes = _context.AllocatedTimes;
-            if (allocatedTimes == null || allocatedTimes.Count() == 0)
-            {
-                throw new NotFoundException();
-            }
-            return allocatedTimes.ToList();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
-        public IEnumerable<AllocatedTime> GetAllocatedTimesByUserId(int userId)
-        {
-            IQueryable<Project> userProjects = _context.Projects.Where(p => p.UserId == userId);
-            if (userProjects == null || userProjects.Count() == 0)
-            {
-                throw new NotFoundException();
-            }
-            IQueryable<AllocatedTime> allocatedTimes = _context.AllocatedTimes.Where(at => userProjects.Any(p => p.Id == at.ProjectId));
+            IQueryable<AllocatedTime> allocatedTimes = _context.AllocatedTimes.Include(at => at.Project)
+                                                                              .Include(at => at.Invoice);
             if (allocatedTimes == null || allocatedTimes.Count() == 0)
             {
                 throw new NotFoundException();
@@ -88,7 +77,9 @@ namespace Freelancer.Business.Services
         /// <returns></returns>
         public AllocatedTime GetAllocatedTimeById(int allocatedTimeId)
         {
-            AllocatedTime allocatedTime = _context.AllocatedTimes.Where(p => p.Id == allocatedTimeId).FirstOrDefault();
+            AllocatedTime allocatedTime = _context.AllocatedTimes.Include(at => at.Project)
+                                                                 .Include(at => at.Invoice)
+                                                                 .Where(p => p.Id == allocatedTimeId).FirstOrDefault();
             if (allocatedTime == null)
             {
                 throw new NotFoundException();
@@ -96,30 +87,29 @@ namespace Freelancer.Business.Services
             return allocatedTime;
         }
 
-        public dynamic SearchAllocatedTimes(int userId, DateTime? startDate, DateTime? endDate, int? customerId, bool? invoiced)
+        public IEnumerable<AllocatedTime> SearchAllocatedTimes(SearchAllocatedTimesRequest request)
         {
-            IEnumerable<AllocatedTime> userAllocatedTimes = this.GetAllocatedTimesByUserId(userId);
+            IQueryable<AllocatedTime> userAllocatedTimes = _context.AllocatedTimes.Include(at => at.Project.Customer)
+                                                                                  .Include(at => at.Project.User)
+                                                                                  .Include(at => at.Invoice)
+                                                                                  .Where(at => at.Project.User.Id == request.UserId);
 
-            if (startDate != null)
+            if (request.StartDate != null)
             {
-                userAllocatedTimes = userAllocatedTimes.Where(at => at.StartDate > startDate);
+                userAllocatedTimes = userAllocatedTimes.Where(at => at.StartDate > request.StartDate);
             }
-            if (endDate == null)
+            if (request.EndDate == null)
             {
-                userAllocatedTimes = userAllocatedTimes.Where(at => at.EndDate < endDate);
+                userAllocatedTimes = userAllocatedTimes.Where(at => at.EndDate < request.EndDate);
             }
-            if (customerId == null)
+            if (request.CustomerId == null)
             {
-                IQueryable<Project> customerProjects = _context.Projects.Where(p => p.CustomerId == customerId);
-                if (customerProjects == null || customerProjects.Count() == 0)
-                {
-                    throw new NotFoundException();
-                }
-                userAllocatedTimes = userAllocatedTimes.Where(at => customerProjects.Any(cp => cp.Id == at.ProjectId));
+                
+                userAllocatedTimes = userAllocatedTimes.Where(at => at.Project.Customer.Id == request.CustomerId);
             }
-            if (invoiced == null)
+            if (request.Invoiced == null)
             {
-                userAllocatedTimes = userAllocatedTimes.Where(at => at.InvoiceId != null);
+                userAllocatedTimes = userAllocatedTimes.Where(at => (request.Invoiced.Value && at.Invoice != null) || (!request.Invoiced.Value && at.Invoice == null));
             }
             if(userAllocatedTimes == null)
             {

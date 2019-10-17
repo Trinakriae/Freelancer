@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Freelancer.Business.Contracts;
 using Freelancer.Business.Interfaces;
 using Freelancer.Business.Models.Entities;
 using Microsoft.AspNetCore.Http;
@@ -70,7 +71,7 @@ namespace Freelancer.Business.Controllers
         {
             try
             {
-                IEnumerable<Project> userProjects = _projectService.GetProjects().Where(p => p.UserId == userId);
+                IEnumerable<Project> userProjects = _projectService.GetProjects().Where(p => p.User.Id == userId);
                 return Ok(userProjects);
             }
             catch (NotFoundException nfex)
@@ -110,7 +111,10 @@ namespace Freelancer.Business.Controllers
         {
             try
             {
-                IEnumerable<AllocatedTime> allocatedTimes = _projectService.GetAllocatedTimesByUserId(userId);
+                SearchAllocatedTimesRequest searchRequest = new SearchAllocatedTimesRequest();
+                searchRequest.UserId = userId;
+
+                IEnumerable<AllocatedTime> allocatedTimes = _projectService.SearchAllocatedTimes(searchRequest);
                 return Ok(allocatedTimes);
             }
             catch (NotFoundException nfex)
@@ -130,9 +134,32 @@ namespace Freelancer.Business.Controllers
         {
             try
             {
-               
+                SearchAllocatedTimesRequest searchRequest = new SearchAllocatedTimesRequest();
+                searchRequest.UserId = userId;
+                searchRequest.StartDate = startDate;
+                searchRequest.EndDate = endDate;
+                searchRequest.CustomerId = customerId;
+                searchRequest.Invoiced = invoiced;
 
-                return Ok(allocatedTimes);
+                IEnumerable<AllocatedTime> allocatedTimes = _projectService.SearchAllocatedTimes(searchRequest).ToList();
+
+                return Ok(allocatedTimes.Select(at => new
+                {
+                    at.Id,
+                    at.Description,
+                    at.StartDate,
+                    at.EndDate,
+                    invoiced = at.Invoice != null,
+                    project = new {
+                        at.Project.Id,
+                        at.Project.Name,
+                        customer = new
+                        {
+                            at.Project.Customer.Id,
+                            at.Project.Customer.Name
+                        }
+                    }
+                }));
             }
             catch (NotFoundException nfex)
             {

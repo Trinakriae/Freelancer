@@ -12,7 +12,7 @@ namespace Freelancer.Business.Models.Entities
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        public int ProjectId { get; set; }
-        public int? InvoiceId { get; set; }
+        public Project Project { get; set; }
+        public Invoice Invoice { get; set; }
     }
 }
