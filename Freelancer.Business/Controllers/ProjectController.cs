@@ -61,7 +61,14 @@ namespace Freelancer.Business.Controllers
             try
             {
                 Project project = _projectService.GetProjectById(projectId);
-                return Ok(project);
+
+                return Ok(new {
+                    project.Id,
+                    project.Name,
+                    project.Description,
+                    user = new { project.User.Id, project.User.Name, project.User.Surname },
+                    customer = new { project.Customer.Id, project.Customer.Name }
+                });
             }
             catch (NotFoundException nfex)
             {
@@ -176,6 +183,25 @@ namespace Freelancer.Business.Controllers
                         }
                     }
                 }));
+            }
+            catch (NotFoundException nfex)
+            {
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An Error Occurred");
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        // Post api/project/allocatedtimes
+        [HttpPost("allocatedtimes")]
+        public ActionResult PostAllocatedTimesToInvoice([FromRoute] int idUser, [FromBody] PostAllocatedTimeBody allocatedTime)
+        {
+            try
+            { 
+                return Ok();
             }
             catch (NotFoundException nfex)
             {

@@ -7,6 +7,6 @@ namespace Freelancer.Business.Interfaces
 {
     public interface IInvoiceService
     {
-        void CreateInvoice(int idUser, List<int> idAllocatedTimes);
+        List<int> CreateInvoices(int idUser, List<int> idAllocatedTimes);
     }
 }

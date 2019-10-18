@@ -64,7 +64,7 @@ namespace Freelancer.Business.Services
         /// <returns></returns>
         public IEnumerable<AllocatedTime> GetAllocatedTimes()
         {
-            IQueryable<AllocatedTime> allocatedTimes = _context.AllocatedTimes.Include(at => at.Project.User);
+            IQueryable<AllocatedTime> allocatedTimes = _context.AllocatedTimes.Include(at => at.Project.User)
                                                                               .Include(at => at.Invoice);
             if (allocatedTimes == null || allocatedTimes.Count() == 0)
             {
@@ -120,5 +120,6 @@ namespace Freelancer.Business.Services
 
             return userAllocatedTimes;
         }
+
     }
 }

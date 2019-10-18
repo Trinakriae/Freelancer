@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IdentityModel;
 using OpenQA.Selenium;
+using Freelancer.Business.Enums;
 
 namespace Freelancer.Business.Services
 {
@@ -20,7 +21,7 @@ namespace Freelancer.Business.Services
             _projectService = projectService;
         }
 
-        public void CreateInvoice(int idUser, List<int> idAllocatedTimes)
+        public List<int> CreateInvoices(int idUser, List<int> idAllocatedTimes)
         {
             using (IDbContextTransaction transaction = _context.Database.BeginTransaction())
             {
@@ -36,14 +37,34 @@ namespace Freelancer.Business.Services
                         throw new Exception("In the allocated times set to be invoiced there are invalid items");
                     }
 
-                    allocatedTimes.GroupBy(at => at.Project.CustomerId).Select(atg => new {
+                    var allocatedTimesGroupedByCustomerList = allocatedTimes.GroupBy(at => at.Project.CustomerId).Select(atg => new {
                         customerId = atg.Key,
-                        x = atg.Sum(s => s.EndDate.Value.Subtract(s.StartDate).TotalHours)
+                        amount = atg.Sum(s => (decimal) s.EndDate.Value.Subtract(s.StartDate).TotalHours)
                     });
-                    
 
+                    List<Invoice> newInvoiceList = new List<Invoice>();
+
+                    foreach (var allocatedTimesGroupedByCustomer in allocatedTimesGroupedByCustomerList)
+                    {
+                        Invoice invoice = new Invoice();
+
+                        invoice.CustomerId = allocatedTimesGroupedByCustomer.customerId;
+                        invoice.Status = INVOICESTATUS.CREATED;
+                        _context.Add(invoice);
+                        newInvoiceList.Add(invoice);
+
+                        InvoiceLine invoiceLine = new InvoiceLine {
+                            Invoice = invoice,
+                            Amount = allocatedTimesGroupedByCustomer.amount
+                        };
+                        //invoiceLine.InvoiceId = invoice.Id;
+                        _context.Add(invoiceLine);
+                    }
+                    _context.SaveChanges();
 
                     transaction.Commit();
+
+                    return newInvoiceList.Select(i => i.Id).ToList();
                 }
                 catch (Exception ex)
                 {

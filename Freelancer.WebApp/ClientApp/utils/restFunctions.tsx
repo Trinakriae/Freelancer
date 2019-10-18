@@ -1,5 +1,5 @@
 ﻿import * as $ from 'jquery';
-import { IRequestWrapper } from '../interfaces/IRequestWrapper';
+import { IRequestWrapper } from '../interfaces/shared';
 
 declare const CONFIG: any; 
 

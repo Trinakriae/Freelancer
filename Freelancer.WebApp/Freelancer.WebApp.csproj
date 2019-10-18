@@ -22,13 +22,27 @@
 
   <ItemGroup>
     <None Remove="ClientApp\classes\index.tsx" />
+    <None Remove="ClientApp\classes\postParameters.tsx" />
     <None Remove="ClientApp\classes\SearchParameters.tsx" />
     <None Remove="ClientApp\enums\index.tsx" />
+    <None Remove="ClientApp\interfaces\IAllocatedTime.tsx" />
+    <None Remove="ClientApp\interfaces\IAllocatedTimeSummary.tsx" />
+    <None Remove="ClientApp\interfaces\ICustomer.tsx" />
+    <None Remove="ClientApp\interfaces\ICustomerSummary.tsx" />
     <None Remove="ClientApp\interfaces\IDictionary.tsx" />
+    <None Remove="ClientApp\interfaces\IInvoiceLine.tsx" />
     <None Remove="ClientApp\interfaces\index.tsx" />
+    <None Remove="ClientApp\interfaces\IProject.tsx" />
+    <None Remove="ClientApp\interfaces\IProjectSummary.tsx" />
     <None Remove="ClientApp\interfaces\IRequestWrapper.tsx" />
     <None Remove="ClientApp\interfaces\IServiceParameters.tsx" />
+    <None Remove="ClientApp\interfaces\IUser.tsx" />
+    <None Remove="ClientApp\interfaces\IUserSummary.tsx" />
+    <None Remove="ClientApp\interfaces\shared\IInvoice.tsx" />
+    <None Remove="ClientApp\interfaces\shared\IInvoiceSummary.tsx" />
+    <None Remove="ClientApp\interfaces\shared\index.tsx" />
     <None Remove="ClientApp\services\getData.tsx" />
+    <None Remove="ClientApp\services\writeData.tsx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,13 +53,51 @@
     <TypeScriptCompile Include="ClientApp\classes\index.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\classes\postParameters.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\classes\searchParameters.tsx" />
     <TypeScriptCompile Include="ClientApp\enums\httpMethodsEnum.tsx" />
     <TypeScriptCompile Include="ClientApp\enums\index.tsx" />
-    <TypeScriptCompile Include="ClientApp\interfaces\IDictionary.tsx" />
+    <TypeScriptCompile Include="ClientApp\interfaces\IAllocatedTimeSummary.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\interfaces\IAllocatedTime.tsx" />
+    <TypeScriptCompile Include="ClientApp\interfaces\ICustomerSummary.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\interfaces\IInvoiceLine.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\interfaces\shared\IDictionary.tsx" />
     <TypeScriptCompile Include="ClientApp\interfaces\index.tsx" />
-    <TypeScriptCompile Include="ClientApp\interfaces\IRequestWrapper.tsx" />
-    <TypeScriptCompile Include="ClientApp\interfaces\IServiceParameters.tsx" />
+    <TypeScriptCompile Include="ClientApp\interfaces\ICustomer.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\interfaces\IUserSummary.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\interfaces\IUser.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\interfaces\IProject.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\interfaces\IProjectSummary.tsx" />
+    <TypeScriptCompile Include="ClientApp\interfaces\shared\index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\interfaces\shared\IRequestWrapper.tsx" />
+    <TypeScriptCompile Include="ClientApp\interfaces\shared\IServiceParameters.tsx" />
+    <TypeScriptCompile Include="ClientApp\interfaces\IInvoice.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\interfaces\IInvoiceSummary.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\services\writeData.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\services\getData.tsx" />
   </ItemGroup>
 
